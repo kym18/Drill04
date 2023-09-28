@@ -29,7 +29,7 @@ def character_moving():  # 1015   490
             moving_left = False
 
     elif moving_right:
-        character.clip_draw(frame * 85, 163, 60, 79, x, y)
+        character.clip_draw(frame * 85, 163, 63, 79, x, y)
         x += speed
         frame = (frame + 1) % 11
         if x >= 760:
@@ -50,7 +50,9 @@ def character_moving():  # 1015   490
             moving_down = False
 
     else:  # 대기
-        character.clip_draw(frame * 85 + 85, 410, 70, 79, x, y)
+        character.clip_draw(frame * 85 + 427 , 410, 73, 80, x, y)
+        frame = (frame + 1) % 7
+
 
 def handle_events():
     global running, moving_right, moving_left, moving_up, moving_down, dir
@@ -86,6 +88,6 @@ while running:
     character_moving()
     update_canvas()
     handle_events()
-    delay(0.01)
+    delay(0.05)
 
 close_canvas()
